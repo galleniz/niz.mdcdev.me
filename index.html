@@ -20,14 +20,51 @@
             padding: 2rem;
             background-color: #ffffff;
             width: 400px;
+            opacity: 0; /* Inicialmente oculto */
+            animation: fadeIn 1s ease-in-out forwards; /* Animación de aparición */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Desplazar hacia arriba */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .out {
+          animation: fadeOut 1s ease-in-out forwards;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0); /* Desplazar hacia arriba */
+            }
+            to {
+                opacity: 0;
+                transform: translateY(20px);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="card">
+    <div class="card" id="redirectCard">
         <h1 class="text-center">Redirigiendo...</h1>
         <p class="text-center">He movido este sitio a <a href="https://galleniz.me/">https://galleniz.me/</a></p>
         <p class="text-center">Si aún no te redirige, <a href="https://galleniz.me">da click acá</a>.</p>
     </div>
+
+    <script>
+        // Obtener la tarjeta de redireccionamiento
+        var redirectCard = document.getElementById('redirectCard');
+
+        // Función para ocultar la tarjeta después de 3 segundos
+        setTimeout(function() {
+               redirectCard.classList.add('out');
+        }, 3000); // 3000 milisegundos = 3 segundos
+        
+    </script>
 </body>
 </html>
